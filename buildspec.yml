@@ -1,0 +1,30 @@
+version: 0.2
+
+tigger:
+  branches:
+    include: 
+    - develop
+
+phase:
+  install:
+  runtime-Version:
+  commands:
+
+  pre-build:
+    on-failure: ABORT
+    commands:
+    - echo Running test...
+
+  build:
+    on-failure: ABORT
+    commands:
+    - echo Zipping up the application...
+
+post_build:
+    on-failure: ABORT
+    commands:
+    - echo Build completed. Checking if an artifact has been uploaded to S3...
+
+reports:
+
+artifacts:
