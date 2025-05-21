@@ -2,7 +2,7 @@ version: 0.2
 
 phases:
   install:
-    runtime-Version:
+    runtime-version:
       dotnet: 7.0.102
 
   pre-build:
@@ -17,7 +17,7 @@ phases:
     - echo building up the application...
     - dotnet build
 
-post_build:
+post-build:
     on-failure: ABORT
     commands:
     - echo Build completed.
