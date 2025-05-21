@@ -2,13 +2,13 @@ version: 0.2
 
 phases:
   install:
-    runtime-version:
+    runtime-versions:
       dotnet: 7.0.102
 
-  pre-build:
+  pre_build:
     on-failure: ABORT
     commands:
-    - echo Running test...
+    - echo running test...
     - dotnet restore
 
   build:
@@ -17,10 +17,12 @@ phases:
     - echo building up the application...
     - dotnet build
 
-post-build:
+post_build:
     on-failure: ABORT
     commands:
-    - echo Build completed.
+    - echo Running tests...
+    - dotnet test --no-build --verbosity normal
+    - echo Build Completed...
 
 artifacts:
   files:
