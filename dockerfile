@@ -4,6 +4,6 @@ COPY . .
 RUN dotnet restore && dotnet build src/Answer.King.Api/Answer.King.Api.csproj -c Production -o outgot b
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
-WORKDIR /app
+WORKDIR /appsr
 COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "Answer.King.Api.dll"]
